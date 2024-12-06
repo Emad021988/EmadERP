@@ -1,0 +1,85 @@
+{
+    "latest": {
+        "version": "1.0.0",
+        "releaseDate": "2024-01-15",
+        "platforms": {
+            "windows": {
+                "url": "downloads/EmadERP-1.0.0-win.exe",
+                "size": "45.2 MB",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "requirements": {
+                    "os": "Windows 10/11",
+                    "processor": "Intel Core i5 or equivalent",
+                    "ram": "8 GB",
+                    "storage": "500 MB"
+                }
+            },
+            "mac": {
+                "url": "downloads/EmadERP-1.0.0-mac.dmg",
+                "size": "42.8 MB",
+                "sha256": "a3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "requirements": {
+                    "os": "macOS 10.15+",
+                    "processor": "Intel/Apple Silicon",
+                    "ram": "8 GB",
+                    "storage": "500 MB"
+                }
+            },
+            "linux": {
+                "url": "downloads/EmadERP-1.0.0-linux.AppImage",
+                "size": "41.5 MB",
+                "sha256": "b3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "requirements": {
+                    "os": "Ubuntu 20.04+",
+                    "processor": "Intel Core i5 or equivalent",
+                    "ram": "8 GB",
+                    "storage": "500 MB"
+                }
+            }
+        },
+        "changes": [
+            "إطلاق النسخة الأولى من نظام عماد ERP",
+            "دعم كامل للغة العربية",
+            "نظام فواتير متكامل",
+            "إدارة المخزون",
+            "نظام الموارد البشرية",
+            "التقارير والإحصائيات",
+            "النظام المحاسبي",
+            "إدارة المهام والمشاريع"
+        ],
+        "features": {
+            "invoicing": {
+                "title": "نظام الفواتير",
+                "description": "إنشاء وإدارة الفواتير بكل سهولة"
+            },
+            "inventory": {
+                "title": "إدارة المخزون",
+                "description": "متابعة المخزون والمنتجات"
+            },
+            "hr": {
+                "title": "الموارد البشرية",
+                "description": "إدارة شؤون الموظفين والإجازات"
+            },
+            "reports": {
+                "title": "التقارير",
+                "description": "تقارير تفصيلية وإحصائيات"
+            },
+            "accounting": {
+                "title": "المحاسبة",
+                "description": "النظام المحاسبي المتكامل"
+            },
+            "tasks": {
+                "title": "إدارة المهام",
+                "description": "تنظيم وتتبع المهام والمشاريع"
+            }
+        }
+    },
+    "versions": [
+        {
+            "version": "1.0.0",
+            "releaseDate": "2024-01-15",
+            "type": "stable",
+            "supported": true
+        }
+    ]
+}

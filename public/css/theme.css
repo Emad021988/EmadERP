@@ -1,0 +1,254 @@
+/* متغيرات الألوان للوضع الفاتح */
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #3498db;
+    --border-color: #e1e1e1;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: #f0f0f0;
+}
+
+/* متغيرات الألوان للوضع الداكن */
+:root[data-theme="dark"] {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-color: #4facfe;
+    --border-color: #2a2a3e;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --hover-color: #2a2a3e;
+}
+
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* شريط الإعدادات */
+.settings-bar {
+    background-color: var(--bg-secondary);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.settings-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* أزرار التحكم */
+.theme-toggle,
+.lang-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+    background-color: var(--hover-color);
+}
+
+/* الرأس */
+.main-header {
+    padding: 40px 0;
+    text-align: center;
+    background-color: var(--bg-secondary);
+}
+
+.logo-container {
+    margin-bottom: 40px;
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    color: var(--text-primary);
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* المميزات */
+.features {
+    padding: 60px 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+/* القيم */
+.values {
+    padding: 60px 0;
+    background-color: var(--bg-secondary);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    background-color: var(--bg-primary);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* التحميل */
+.download {
+    padding: 60px 0;
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.download-card {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.download-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: opacity 0.3s;
+}
+
+.download-button:hover {
+    opacity: 0.9;
+}
+
+/* العناوين */
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: var(--text-primary);
+}
+
+/* الأيقونات */
+.icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* الرسوم المتحركة */
+.icon-pulse {
+    animation: pulse 2s infinite;
+}
+
+.icon-bounce {
+    animation: bounce 2s infinite;
+}
+
+.icon-rotate {
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .brand-name {
+        font-size: 2rem;
+    }
+    
+    .feature-grid,
+    .values-grid,
+    .download-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-item,
+    .value-card,
+    .download-card {
+        padding: 20px;
+    }
+}

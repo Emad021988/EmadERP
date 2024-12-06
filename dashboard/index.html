@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام عماد ERP - لوحة التحكم</title>
+    <link rel="stylesheet" href="../public/css/theme.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-light">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../public/assets/logo.svg" alt="عماد ERP" class="logo">
+                <h1>نظام عماد ERP</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-home"></i>
+                            <span data-translate="dashboard">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-file-invoice"></i>
+                            <span data-translate="invoices">الفواتير</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-boxes"></i>
+                            <span data-translate="inventory">المخزون</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span data-translate="customers">العملاء</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-line"></i>
+                            <span data-translate="reports">التقارير</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span data-translate="settings">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="بحث...">
+                </div>
+                <div class="user-menu">
+                    <div class="language-selector">
+                        <button class="btn btn-icon" id="languageBtn">
+                            <i class="fas fa-globe"></i>
+                            <span class="current-language">العربية</span>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#" data-lang="ar" class="active">
+                                <i class="flag-icon flag-icon-sa"></i>
+                                العربية
+                            </a>
+                            <a href="#" data-lang="en">
+                                <i class="flag-icon flag-icon-us"></i>
+                                English
+                            </a>
+                            <a href="#" data-lang="fr">
+                                <i class="flag-icon flag-icon-fr"></i>
+                                Français
+                            </a>
+                            <a href="#" data-lang="tr">
+                                <i class="flag-icon flag-icon-tr"></i>
+                                Türkçe
+                            </a>
+                        </div>
+                    </div>
+                    <button class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="../public/assets/default-avatar.png" alt="المستخدم">
+                        <span>أحمد محمد</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Quick Stats -->
+                <section class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon sales">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>المبيعات اليومية</h3>
+                            <p>12,500 ر.س</p>
+                            <span class="trend positive">+15%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orders">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>الطلبات الجديدة</h3>
+                            <p>25</p>
+                            <span class="trend positive">+8%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon customers">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>العملاء النشطون</h3>
+                            <p>1,250</p>
+                            <span class="trend positive">+12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon inventory">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>المنتجات المتوفرة</h3>
+                            <p>1,840</p>
+                            <span class="trend negative">-3%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="recent-activity">
+                    <h2>النشاطات الأخيرة</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-file-invoice"></i></div>
+                            <div class="activity-details">
+                                <h4>فاتورة جديدة #12345</h4>
+                                <p>تم إنشاء فاتورة جديدة للعميل محمد أحمد</p>
+                                <span class="time">منذ 5 دقائق</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                            <div class="activity-details">
+                                <h4>عميل جديد</h4>
+                                <p>تم تسجيل عميل جديد: شركة الأفق للتجارة</p>
+                                <span class="time">منذ 15 دقيقة</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-box"></i></div>
+                            <div class="activity-details">
+                                <h4>تحديث المخزون</h4>
+                                <p>تم إضافة 50 وحدة من المنتج XYZ</p>
+                                <span class="time">منذ ساعة</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../public/js/settings.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="../public/js/language.js"></script>
+</body>
+</html>

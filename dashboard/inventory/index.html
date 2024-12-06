@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المخزون - نظام عماد ERP</title>
+    <link rel="stylesheet" href="../../public/css/theme.css">
+    <link rel="stylesheet" href="../../public/css/icons.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-light">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- ... سيتم إضافة نفس محتوى الشريط الجانبي عبر JavaScript ... -->
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- شريط العنوان -->
+            <header class="page-header">
+                <h1>إدارة المخزون</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="importProductsBtn">
+                        <i class="fas fa-file-import"></i>
+                        استيراد
+                    </button>
+                    <button class="btn btn-secondary" id="exportProductsBtn">
+                        <i class="fas fa-file-export"></i>
+                        تصدير
+                    </button>
+                    <button class="btn btn-primary" id="addProductBtn">
+                        <i class="fas fa-plus"></i>
+                        منتج جديد
+                    </button>
+                </div>
+            </header>
+
+            <!-- لوحة المعلومات -->
+            <section class="inventory-dashboard">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon products">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>إجمالي المنتجات</h3>
+                            <p>1,840</p>
+                            <span class="trend positive">+12 هذا الشهر</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon low-stock">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>مخزون منخفض</h3>
+                            <p>24</p>
+                            <span class="trend negative">يحتاج للتجديد</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon value">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>قيمة المخزون</h3>
+                            <p>256,500 ر.س</p>
+                            <span class="trend positive">+5% عن الشهر السابق</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon categories">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>التصنيفات</h3>
+                            <p>32</p>
+                            <span class="trend neutral">نشط</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- أدوات التصفية والبحث -->
+            <section class="filters-section">
+                <div class="search-filters">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="بحث في المنتجات...">
+                    </div>
+                    <div class="filter-group">
+                        <select class="filter-select">
+                            <option value="">التصنيف</option>
+                            <option value="electronics">إلكترونيات</option>
+                            <option value="furniture">أثاث</option>
+                            <option value="clothing">ملابس</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="">حالة المخزون</option>
+                            <option value="in-stock">متوفر</option>
+                            <option value="low-stock">مخزون منخفض</option>
+                            <option value="out-of-stock">نفذ المخزون</option>
+                        </select>
+                        <button class="btn btn-outline" id="advancedFilterBtn">
+                            <i class="fas fa-sliders-h"></i>
+                            تصفية متقدمة
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- جدول المنتجات -->
+            <section class="products-table-section">
+                <div class="table-container">
+                    <table class="products-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="select-all">
+                                </th>
+                                <th>صورة</th>
+                                <th>رمز المنتج</th>
+                                <th>اسم المنتج</th>
+                                <th>التصنيف</th>
+                                <th>الكمية</th>
+                                <th>سعر البيع</th>
+                                <th>سعر التكلفة</th>
+                                <th>حالة المخزون</th>
+                                <th>آخر تحديث</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- سيتم إضافة البيانات ديناميكياً -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ترقيم الصفحات -->
+                <div class="pagination">
+                    <button class="btn btn-icon" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="page-numbers">
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <span>...</span>
+                        <button>12</button>
+                    </div>
+                    <button class="btn btn-icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- نموذج إضافة/تعديل منتج -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>إضافة منتج جديد</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>رمز المنتج</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>اسم المنتج</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>التصنيف</label>
+                            <select required>
+                                <option value="">اختر التصنيف</option>
+                                <option value="electronics">إلكترونيات</option>
+                                <option value="furniture">أثاث</option>
+                                <option value="clothing">ملابس</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>الوحدة</label>
+                            <select required>
+                                <option value="">اختر الوحدة</option>
+                                <option value="piece">قطعة</option>
+                                <option value="box">صندوق</option>
+                                <option value="kg">كيلوجرام</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>سعر البيع</label>
+                            <input type="number" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>سعر التكلفة</label>
+                            <input type="number" min="0" step="0.01" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>الكمية الحالية</label>
+                            <input type="number" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>حد الطلب</label>
+                            <input type="number" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>صورة المنتج</label>
+                        <div class="image-upload">
+                            <input type="file" accept="image/*" id="productImage">
+                            <label for="productImage">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>اختر صورة أو اسحبها هنا</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>الوصف</label>
+                        <textarea rows="3" placeholder="وصف تفصيلي للمنتج"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>الباركود</label>
+                        <div class="barcode-input">
+                            <input type="text" placeholder="أدخل الباركود أو امسحه">
+                            <button type="button" class="btn btn-icon">
+                                <i class="fas fa-barcode"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-modal">إلغاء</button>
+                <button type="submit" form="productForm" class="btn btn-primary">حفظ المنتج</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../public/js/settings.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+</html>

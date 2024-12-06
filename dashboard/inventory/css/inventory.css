@@ -1,0 +1,235 @@
+/* Inventory Dashboard */
+.inventory-dashboard {
+    margin-bottom: 2rem;
+}
+
+/* Stats Cards */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.stat-icon.products { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.stat-icon.low-stock { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.stat-icon.value { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.stat-icon.categories { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
+.stat-details h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-details p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.trend {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.trend.positive {
+    background: rgba(67, 233, 123, 0.1);
+    color: #43e97b;
+}
+
+.trend.negative {
+    background: rgba(250, 112, 154, 0.1);
+    color: #fa709a;
+}
+
+.trend.neutral {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+}
+
+/* Products Table */
+.products-table-section {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.products-table th,
+.products-table td {
+    padding: 1rem;
+    text-align: right;
+}
+
+.products-table th {
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.products-table th:first-child {
+    border-top-right-radius: 8px;
+}
+
+.products-table th:last-child {
+    border-top-left-radius: 8px;
+}
+
+.products-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.products-table tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+.products-table td {
+    color: var(--text-primary);
+}
+
+/* Product Image */
+.product-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Stock Status */
+.stock-status {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.stock-status.in-stock {
+    background: rgba(67, 233, 123, 0.1);
+    color: #43e97b;
+}
+
+.stock-status.low-stock {
+    background: rgba(250, 112, 154, 0.1);
+    color: #fa709a;
+}
+
+.stock-status.out-of-stock {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+/* Product Modal */
+.image-upload {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.image-upload:hover {
+    border-color: var(--primary-color);
+}
+
+.image-upload input[type="file"] {
+    display: none;
+}
+
+.image-upload label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.image-upload i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* Barcode Input */
+.barcode-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.barcode-input input {
+    flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-actions {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .products-table {
+        font-size: 0.9rem;
+    }
+    
+    .products-table th,
+    .products-table td {
+        padding: 0.8rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card {
+    animation: fadeIn 0.3s ease-out forwards;
+}

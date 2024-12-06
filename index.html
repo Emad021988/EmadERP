@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام عماد ERP</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="public/css/theme.css">
+    <link rel="stylesheet" href="public/css/icons.css">
+    <link rel="stylesheet" href="public/css/download-modal.css">
+    <!-- Custom JS -->
+    <script src="public/js/settings.js" defer></script>
+    <script src="public/js/download.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #2a5298;
+            --accent-color: #4CAF50;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: #f5f7fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .download-section {
+            background: var(--white);
+            padding: 4rem 0;
+            border-radius: 10px;
+            margin-top: -50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .download-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .download-card img {
+            width: 64px;
+            margin-bottom: 1rem;
+        }
+
+        .download-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .download-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .download-button:hover {
+            background: #45a049;
+        }
+
+        .features {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-item img {
+            width: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .system-requirements {
+            padding: 4rem 0;
+        }
+
+        .system-requirements h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .requirement-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .requirement-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .requirement-card ul {
+            list-style: none;
+        }
+
+        .requirement-card li {
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+
+        .footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+            display: none;
+        }
+
+        .filter-container {
+            margin-top: 2rem;
+        }
+
+        .filter-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border-radius: 10px;
+            margin: 0.5rem;
+            cursor: pointer;
+        }
+
+        .filter-tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .icon {
+            transition: transform 0.3s ease;
+        }
+
+        .icon-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .icon-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        .icon-rotate {
+            animation: rotate 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .download-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Styles for the new sections */
+        .about-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .about-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .lead-text {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-item {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .highlight-item h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .values-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .value-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط الإعدادات -->
+    <div class="settings-bar">
+        <div class="container">
+            <div class="settings-controls">
+                <button id="themeToggle" class="theme-toggle" aria-label="تبديل المظهر" data-translate="theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+                <button id="langToggle" class="lang-toggle" aria-label="تغيير اللغة" data-translate="language">
+                    <span class="lang-text">EN</span>
+                    <i class="fas fa-globe"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="public/assets/logo.svg" alt="عماد ERP" class="main-logo">
+                <h1 class="brand-name" data-translate="mainTitle">نظام عماد ERP</h1>
+                <p class="lead-text" data-translate="subTitle">نظام إدارة موارد المؤسسات المتكامل</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- المميزات -->
+    <section class="features">
+        <div class="container">
+            <h2 data-translate="features">المميزات الرئيسية</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-file-invoice-dollar icon icon-pulse"></i>
+                    <h3 data-translate="invoicing">نظام الفواتير</h3>
+                    <p data-translate="invoicingDesc">إنشاء وإدارة الفواتير بكل سهولة</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-boxes icon icon-pulse"></i>
+                    <h3 data-translate="inventory">إدارة المخزون</h3>
+                    <p data-translate="inventoryDesc">متابعة المخزون والمنتجات</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users-cog icon icon-pulse"></i>
+                    <h3 data-translate="hr">الموارد البشرية</h3>
+                    <p data-translate="hrDesc">إدارة شؤون الموظفين والإجازات</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line icon icon-rotate"></i>
+                    <h3 data-translate="reports">التقارير</h3>
+                    <p data-translate="reportsDesc">تقارير تفصيلية وإحصائيات</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calculator icon icon-pulse"></i>
+                    <h3 data-translate="accounting">المحاسبة</h3>
+                    <p data-translate="accountingDesc">النظام المحاسبي المتكامل</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tasks icon icon-bounce"></i>
+                    <h3 data-translate="tasks">إدارة المهام</h3>
+                    <p data-translate="tasksDesc">تنظيم وتتبع المهام والمشاريع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- القيم -->
+    <section class="values">
+        <div class="container">
+            <h2 data-translate="values">قيمنا</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-handshake icon icon-bounce"></i>
+                    <h3 data-translate="reliability">الموثوقية</h3>
+                    <p data-translate="reliabilityDesc">نلتزم بتقديم خدمة موثوقة وثابتة</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users icon icon-pulse"></i>
+                    <h3 data-translate="customerFirst">العميل أولاً</h3>
+                    <p data-translate="customerFirstDesc">رضا العملاء هو أولويتنا الأولى</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-lightbulb icon icon-pulse"></i>
+                    <h3 data-translate="innovation">الابتكار</h3>
+                    <p data-translate="innovationDesc">نسعى دائماً لتقديم حلول مبتكرة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التحميل -->
+    <section class="download">
+        <div class="container">
+            <h2 data-translate="download">تحميل البرنامج</h2>
+            <div class="download-grid">
+                <div class="download-card">
+                    <i class="fab fa-windows icon icon-bounce"></i>
+                    <h3>Windows</h3>
+                    <p data-translate="windowsDesc">متوافق مع Windows 10/11</p>
+                    <button class="download-button" onclick="startDownload('windows')" data-translate="downloadNow">
+                        تحميل الآن
+                    </button>
+                </div>
+                <div class="download-card">
+                    <i class="fab fa-apple icon icon-bounce"></i>
+                    <h3>macOS</h3>
+                    <p data-translate="macDesc">متوافق مع macOS 10.15+</p>
+                    <button class="download-button" onclick="startDownload('mac')" data-translate="downloadNow">
+                        تحميل الآن
+                    </button>
+                </div>
+                <div class="download-card">
+                    <i class="fab fa-linux icon icon-bounce"></i>
+                    <h3>Linux</h3>
+                    <p data-translate="linuxDesc">متوافق مع Ubuntu 20.04+</p>
+                    <button class="download-button" onclick="startDownload('linux')" data-translate="downloadNow">
+                        تحميل الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function startDownload(platform, event) {
+            event.preventDefault();
+            
+            // إظهار رسالة التحميل
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'جاري التحميل...';
+            button.disabled = true;
+
+            // بدء التحميل
+            fetch(`/download/${platform}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('فشل التحميل');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    // إنشاء رابط التحميل
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    
+                    // تحديد اسم الملف
+                    switch (platform) {
+                        case 'windows':
+                            a.download = 'EmadERP-Setup-Windows.exe';
+                            break;
+                        case 'mac':
+                            a.download = 'EmadERP-Setup-Mac.dmg';
+                            break;
+                        case 'linux':
+                            a.download = 'EmadERP-Setup-Linux.AppImage';
+                            break;
+                    }
+                    
+                    // بدء التحميل
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                    
+                    // إعادة الزر لحالته الأصلية
+                    button.textContent = originalText;
+                    button.disabled = false;
+                })
+                .catch(error => {
+                    console.error('خطأ في التحميل:', error);
+                    alert('حدث خطأ أثناء التحميل. يرجى المحاولة مرة أخرى.');
+                    button.textContent = originalText;
+                    button.disabled = false;
+                });
+        }
+    </script>
+</body>
+</html>

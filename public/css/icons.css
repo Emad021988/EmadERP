@@ -1,0 +1,375 @@
+/* تنسيقات الأيقونات */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.3);
+}
+
+.icon-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.icon-container:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon-title {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.icon-description {
+    color: var(--gray-600);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+/* تأثيرات الأيقونات */
+.icon-pulse {
+    animation: iconPulse 2s infinite;
+}
+
+.icon-bounce {
+    animation: iconBounce 2s infinite;
+}
+
+.icon-rotate {
+    animation: iconRotate 4s linear infinite;
+}
+
+.icon-shake {
+    animation: iconShake 2s infinite;
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes iconBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes iconRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* تنسيقات خاصة لأيقونات معينة */
+.fa-file-invoice-dollar {
+    color: #2ecc71;
+}
+
+.fa-boxes {
+    color: #e67e22;
+}
+
+.fa-users-cog {
+    color: #3498db;
+}
+
+.fa-chart-line {
+    color: #9b59b6;
+}
+
+.fa-calculator {
+    color: #34495e;
+}
+
+.fa-tasks {
+    color: #e74c3c;
+}
+
+/* تنسيقات أيقونات القائمة */
+.menu-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+/* تنسيقات أيقونات الإعدادات */
+.settings-icon {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+/* تنسيقات أيقونات وسائل التواصل */
+.social-icon {
+    font-size: 1.8rem;
+    margin: 0 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 1;
+}
+
+/* تنسيقات أيقونات التنبيهات */
+.alert-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.success-icon {
+    color: #2ecc71;
+}
+
+.warning-icon {
+    color: #f1c40f;
+}
+
+.error-icon {
+    color: #e74c3c;
+}
+
+/* تنسيقات أيقونات التحميل */
+.download-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* تأثيرات الأيقونات */
+.icon-pulse {
+    animation: pulse 2s infinite;
+}
+
+.icon-bounce {
+    animation: bounce 1s infinite;
+}
+
+.icon-rotate {
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* تنسيقات البحث */
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 20px;
+    padding-right: 50px;
+    border: 2px solid var(--gray-300);
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+    transition: color 0.3s ease;
+}
+
+.search-input:focus + .search-icon {
+    color: var(--primary-color);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.search-result-item {
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-result-item:hover {
+    background-color: var(--gray-100);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-highlight {
+    background-color: rgba(30, 60, 114, 0.1);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* تنسيقات التصفية */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-tag {
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: var(--gray-200);
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-tag:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.filter-tag.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* تنسيقات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .search-container {
+        margin: 20px 15px;
+    }
+
+    .filter-container {
+        padding: 0 15px;
+    }
+}
+
+/* تنسيقات الشعار الجديد */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.main-logo {
+    transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.1);
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* تكيف الأيقونات مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+    
+    .social-icon {
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .menu-icon {
+        font-size: 1rem;
+    }
+}
